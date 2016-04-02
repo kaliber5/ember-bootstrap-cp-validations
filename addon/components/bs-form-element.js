@@ -33,9 +33,7 @@ export default BsFormElement.extend({
         let relatedTarget = `${name}.`;
         if (property.startsWith(relatedTarget)) {
           let nestedProperty = property.replace(relatedTarget, '');
-          defineProperty(this, '_attrValidations', computed.readOnly(`model.${name}.validations.attrs.${nestedProperty}`));
-        } else {
-          defineProperty(this, '_attrValidations', computed.readOnly(`model.validations.attrs.${property}`));
+          defineProperty(this, '_attrValidations', computed.readOnly(`model.${name}.validations.attrs.${nestedProperty}`) );
         }
       });
     } else {
