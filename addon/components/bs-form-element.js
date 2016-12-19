@@ -15,7 +15,13 @@ export default BsFormElement.extend({
   hasValidator: computed.notEmpty('_attrValidations').readOnly(),
   hasErrors: computed.and('_attrValidations.isInvalid', 'notValidating').readOnly(),
   isValidating: computed.readOnly('_attrValidations.isValidating'),
-  required: computed.and('_attrValidations.options.presence.presence', 'notDisabled'),
+  // mark as required only if:
+  // - field is not disabled,
+  // - presence validator requires data presence
+  // - presence validator is not disabled
+  required: computed('_attrValidations.options.presence.presence', '_attrValidations.options.presence.disabled', 'notDisabled', function() {
+     return this.get('notDisabled') && this.get('_attrValidations.options.presence.presence') && !this.get('_attrValidations.options.presence.disabled')
+  }),
 
   setupValidations() {
     defineProperty(this, '_attrValidations', computed.readOnly(`model.validations.attrs.${this.get('property')}`));
