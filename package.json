@@ -1,6 +1,6 @@
 {
   "name": "ember-bootstrap-cp-validations",
-  "version": "0.2.1",
+  "version": "1.0.0-alpha.0",
   "description": "ember-cp-validations support for ember-bootstrap",
   "directories": {
     "doc": "doc",
