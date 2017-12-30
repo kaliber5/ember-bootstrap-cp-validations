@@ -12,7 +12,7 @@ ember install ember-bootstrap-cp-validations
 
 If using ember-bootstrap 1.0 (alpha), install the corresponding version of this addon:
 
-    ember install ember-bootstrap-cp-validations@1.0.0-alpha
+    ember install ember-bootstrap-cp-validations@1.0.0-alpha.0
 
 ## Usage
 
