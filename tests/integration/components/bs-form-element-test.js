@@ -1,18 +1,15 @@
+import EmberObject from '@ember/object';
+import { setOwner, getOwner } from '@ember/application';
 import { moduleForComponent, test } from 'ember-qunit';
-import Ember from 'ember';
 import hbs from 'htmlbars-inline-precompile';
-import startApp from '../../helpers/start-app';
-import destroyApp from '../../helpers/destroy-app';
 import { validator, buildValidations } from 'ember-cp-validations';
-
-const { getOwner, setOwner } = Ember;
 
 const Validations = buildValidations({
   test: [
     validator('presence', true)
   ]
 });
-const Model = Ember.Object.extend(Validations, {
+const Model = EmberObject.extend(Validations, {
   test: null
 });
 
@@ -21,7 +18,6 @@ moduleForComponent('bs-form-element', 'Integration | Component | bs form element
 });
 
 test('valid validation is supported as expected', function(assert) {
-  let App = startApp();
   let model = Model.create({
     test: '123'
   });
@@ -44,12 +40,9 @@ test('valid validation is supported as expected', function(assert) {
   assert.expect(1);
 
   this.$('form').submit();
-
-  destroyApp(App);
 });
 
 test('invalid validation is supported as expected', function(assert) {
-  let App = startApp();
   let model = Model.create();
   setOwner(model, getOwner(this));
 
@@ -71,6 +64,4 @@ test('invalid validation is supported as expected', function(assert) {
 
   this.$('form').submit();
   assert.ok(this.$('.form-group').hasClass('has-error'), 'form element group has error class');
-
-  destroyApp(App);
 });
