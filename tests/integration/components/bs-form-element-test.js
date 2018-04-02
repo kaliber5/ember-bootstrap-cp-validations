@@ -72,7 +72,7 @@ module('Integration | Component | bs form element', function(hooks) {
   });
 
   test('valid validation is supported as expected when working with an ember-buffered-proxy model', async function(assert) {
-    let proxiedModel = Model.create();
+    let proxiedModel = EmberObject.create();
     setOwner(proxiedModel, this.owner);
 
     let model = BufferedModel.create({
@@ -101,7 +101,7 @@ module('Integration | Component | bs form element', function(hooks) {
   });
 
   test('invalid validation is supported as expected when working with an ember-buffered-proxy model', async function(assert) {
-    let proxiedModel = Model.create();
+    let proxiedModel = EmberObject.create();
     setOwner(proxiedModel, this.owner);
 
     let model = BufferedModel.create({
