@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import getOwner from 'ember-getowner-polyfill';
+import { getOwner } from '@ember/application';
 
 export default Route.extend({
 	model() {

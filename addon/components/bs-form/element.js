@@ -20,7 +20,7 @@ export default BsFormElement.extend({
   required: and('notDisabled', '_attrValidations.options.presence.presence', '_presenceEnabled'),
 
   setupValidations() {
-    defineProperty(this, '_attrValidations', readOnly(`model.validations.attrs.${this.get('property')}`));
+    defineProperty(this, '_attrValidations', readOnly(`model.validations.attrs.${this.property}`));
     defineProperty(this, 'errors', readOnly('_attrValidations.messages'));
     defineProperty(this, 'warnings', readOnly('_attrValidations.warningMessages'));
   }
