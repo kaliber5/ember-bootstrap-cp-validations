@@ -1,22 +1,59 @@
-# ember-bootstrap-cp-validations
+ember-bootstrap-cp-validations
+==============================================================================
 
 [![npm version](https://badge.fury.io/js/ember-bootstrap-cp-validations.svg)](http://badge.fury.io/js/ember-bootstrap-cp-validations)
 
-[Ember CP Validations](https://github.com/offirgolan/ember-cp-validations) support for [Ember Bootstrap](https://github.com/kaliber5/ember-bootstrap).
+This Ember addon adds support for validations based on [Ember CP Validations](https://github.com/offirgolan/ember-cp-validations) to [ember-bootstrap](https://www.ember-bootstrap.com) forms.
+This way your forms are only submitted when the underlying data is valid, otherwise the appropriate bootstrap error
+markup will be applied. See the [FormElement documentation](https://www.ember-bootstrap.com/api/classes/Components.FormElement.html) for
+further details.
 
-## Install
+Compatibility
+------------------------------------------------------------------------------
 
-```bash
+* Ember Bootstrap v3
+* Ember CP Validations v3
+* Ember.js v3.12 or above
+* Ember CLI v2.13 or above
+* Node.js v10 or above
+
+
+Installation
+------------------------------------------------------------------------------
+
+```
 ember install ember-bootstrap-cp-validations
 ```
 
-## Usage
+You should have installed the ember-bootstrap and ember-cp-validations addons already. If not install them:
 
-Just install this addon and use ember-bootstrap as intended. This addon adds support for form validation (error and warning messages) of the following components
+```
+ember install ember-bootstrap
+ember install ember-cp-validations
+```
 
-- [bs-form](http://kaliber5.github.io/ember-bootstrap/api/classes/Components.Form.html)
-- [bs-form-element](http://kaliber5.github.io/ember-bootstrap/api/classes/Components.FormElement.html)
+Usage
+------------------------------------------------------------------------------
 
-## Requirements
+Define your model and its validations as described in [Ember CP Validations](https://github.com/offirgolan/ember-cp-validations).
+Then assign the model to your form:
 
-This addon needs ember-bootstrap starting at 1.0.0. For warning messages you will need at least ember-cp-validations 3.0.
+```hbs
+<BsForm @model={{changeset this.user this.userValidations}} as |form|>
+  <form.element @label="Username" @controlType="text" @property="username" />
+  <form.element @label="Email" @controlType="email" @property="email" />
+  <form.element @label="Password" @controlType="password" @property="password" />
+  <form.submitButton>Submit</form.submitButton>
+</BsForm>
+```
+
+Contributing
+------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
+
+License
+------------------------------------------------------------------------------
+
+This project is licensed under the [MIT License](LICENSE.md).

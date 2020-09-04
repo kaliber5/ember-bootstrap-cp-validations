@@ -1,12 +1,10 @@
 <h2 id="title">ember-bootstrap-cp-validations</h2>
 
-<div style="padding: 15px">
-{{#bs-form formLayout="vertical" model=model action=(action 'submit')}}
-  {{bs-form-element controlType="email" label="Email" placeholder="Email" property="email"}}
-  {{bs-form-element controlType="email" label="Email Confirmation" placeholder="Confirm email" property="emailConfirmation"}}
-  {{bs-form-element controlType="text" label="Username" placeholder="Username" property="username"}}
-  {{bs-form-element controlType="password" label="Password" placeholder="Password" property="password"}}
-  {{bs-form-element controlType="checkbox" label="Remember me" property="rememberMe"}}
-  {{bs-button defaultText="Submit" type="primary" buttonType="submit"}}
-{{/bs-form}}
-</div>
+<BsForm @model={{this.model}} @onSubmit={{this.submit}} as |form|>
+  <form.element @controlType="email" @label="Email" @property="email" />
+  <form.element @controlType="email" @label="Email Confirmation" @property="emailConfirmation" />
+  <form.element @controlType="text" @label="Username" @property="username" />
+  <form.element @controlType="password" @label="Password" @property="password" />
+  <form.element @controlType="checkbox" @label="Remember me" @property="rememberMe" />
+  <form.submitButton>Submit</form.submitButton>
+</BsForm>
