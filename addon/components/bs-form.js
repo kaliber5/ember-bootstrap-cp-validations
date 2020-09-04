@@ -10,7 +10,7 @@ export default BsForm.extend({
     return new EmberPromise((resolve, reject) => {
       let m = model;
 
-      if(model instanceof ObjectProxy) {
+      if(model instanceof ObjectProxy && model.get('content') && typeof model.get('content').validate === 'function') {
         m = model.get('content');
       }
 
