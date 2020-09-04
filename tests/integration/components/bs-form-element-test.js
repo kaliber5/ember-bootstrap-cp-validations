@@ -3,7 +3,7 @@ import ObjectProxy from '@ember/object/proxy';
 import { setOwner } from '@ember/application';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, triggerEvent } from '@ember/test-helpers';
+import { render, triggerEvent, blur, fillIn, focus } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import { buildValidations, validator } from 'ember-cp-validations';
 
@@ -69,6 +69,29 @@ module('Integration | Component | bs form element', function(hooks) {
 
     await triggerEvent('form', 'submit');
     assert.dom('input').hasClass('is-invalid', 'input has error class');
+  });
+
+  test('validations are reactive', async function(assert) {
+    let model = Model.create({
+    });
+    setOwner(model, this.owner);
+
+    this.set('model', model);
+
+    await render(hbs`
+      <BsForm @model={{this.model}} as |form|>
+        <form.element @label="test" @property="test" />
+      </BsForm>
+    `);
+
+    await focus('input');
+    await blur('input');
+    assert.dom('input').hasClass('is-invalid', 'input has error class');
+
+    await fillIn('input', 'xxx');
+    await blur('input');
+
+    assert.dom('input').hasNoClass('is-invalid', 'input has no error class');
   });
 
   test('valid validation is supported as expected when working with an ember-buffered-proxy model', async function(assert) {

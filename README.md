@@ -11,10 +11,10 @@ further details.
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember Bootstrap v3
-* Ember CP Validations v3
-* Ember.js v3.12 or above
-* Ember CLI v2.13 or above
+* Ember Bootstrap v4
+* Ember CP Validations v4
+* Ember.js v3.16 or above
+* Ember CLI v3.15 or above
 * Node.js v10 or above
 
 
