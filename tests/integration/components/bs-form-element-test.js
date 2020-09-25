@@ -150,4 +150,26 @@ module('Integration | Component | bs form element', function(hooks) {
 
     await triggerEvent('form', 'submit');
   });
+
+  test('error is not generated when a model is not supplied when component.formElements are not used ', async function(assert) {
+    let name;
+    this.set('name', name);
+    
+    this.submitAction = function() {
+      assert.ok(true, 'submit action called.');
+    };
+    this.invalidAction = function() {
+      assert.ok(true, 'Invalid action has been called.');
+    };
+
+    await render(hbs`
+      <BsForm @onSubmit={{this.submitAction}} @onInvalid={{this.invalidAction}}>
+        <Input @type="text" @value={{this.name}} />
+      </BsForm>
+    `);
+
+    assert.expect(1);
+
+    await triggerEvent('form', 'submit');
+  });
 });
