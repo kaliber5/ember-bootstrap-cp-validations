@@ -1,3 +1,11 @@
+## v2.0.1 (2020-09-26)
+
+#### :bug: Bug Fix
+* [#38](https://github.com/offirgolan/ember-bootstrap-cp-validations/pull/38) Verify model exists before testing a validator exists ([@maxwondercorn](https://github.com/maxwondercorn))
+
+#### Committers: 1
+- maxwondercorn ([@maxwondercorn](https://github.com/maxwondercorn))
+
 ## v2.0.0 (2020-09-24)
 
 #### :boom: Breaking Change
