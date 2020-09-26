@@ -8,7 +8,7 @@ export default class ValidatedBsFrom extends BsForm {
   '__ember-bootstrap_subclass' = true;
 
   get hasValidator() {
-    return !!this.model.validate;
+    return !!this.model?.validate;
   }
 
   async validate(model) {
