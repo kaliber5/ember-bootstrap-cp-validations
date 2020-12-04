@@ -25,6 +25,6 @@ export default class ValidatedBsFormElement extends BsFormElement {
   warnings;
 
   setupValidations() {
-    defineProperty(this, '_attrValidations', readOnly(`model.validations.attrs.${this.property}`));
+    defineProperty(this, '_attrValidations', readOnly(`args.model.validations.attrs.${this.args.property}`));
   }
 }
