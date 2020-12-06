@@ -1,5 +1,5 @@
 import { not, notEmpty, and, readOnly } from '@ember/object/computed';
-import { defineProperty, get } from '@ember/object';
+import { defineProperty } from '@ember/object';
 import BsFormElement from 'ember-bootstrap/components/bs-form/element';
 
 export default class ValidatedBsFormElement extends BsFormElement {
