@@ -35,11 +35,29 @@ ember install ember-cp-validations
 Usage
 ------------------------------------------------------------------------------
 
-Define your model and its validations as described in [Ember CP Validations](https://github.com/offirgolan/ember-cp-validations).
+Define your model and its validations as described in [Ember CP Validations](https://github.com/offirgolan/ember-cp-validations):
+
+```js
+import Ember from 'ember';
+import { validator, buildValidations } from 'ember-cp-validations';
+
+const Validations = buildValidations({
+  username: validator('presence', true),
+  email: validator('format', { type: 'email' }),
+  password: validator('length', { min: 10 }),
+});
+
+export default Ember.Component.extend(Validations, {
+  username: null,
+  email: null,
+  password: null,
+});
+```
+
 Then assign the model to your form:
 
 ```hbs
-<BsForm @model={{changeset this.user this.userValidations}} as |form|>
+<BsForm @model={{this}} as |form|>
   <form.element @label="Username" @controlType="text" @property="username" />
   <form.element @label="Email" @controlType="email" @property="email" />
   <form.element @label="Password" @controlType="password" @property="password" />
