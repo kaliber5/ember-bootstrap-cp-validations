@@ -73,7 +73,15 @@ module.exports = async function() {
             edition: 'classic'
           }
         }
-      }
+      },
+      {
+        name: 'ember-bootstrap-4.4',
+        npm: {
+          devDependencies: {
+            'ember-bootstrap': '~4.4.0'
+          }
+        }
+      },
     ]
   };
 };

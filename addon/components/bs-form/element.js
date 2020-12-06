@@ -1,5 +1,5 @@
 import { not, notEmpty, and, readOnly } from '@ember/object/computed';
-import { defineProperty } from '@ember/object';
+import { defineProperty, get } from '@ember/object';
 import BsFormElement from 'ember-bootstrap/components/bs-form/element';
 
 export default class ValidatedBsFormElement extends BsFormElement {
@@ -25,6 +25,10 @@ export default class ValidatedBsFormElement extends BsFormElement {
   warnings;
 
   setupValidations() {
-    defineProperty(this, '_attrValidations', readOnly(`args.model.validations.attrs.${this.args.property}`));
+    if (typeof this.args === 'object') {
+      defineProperty(this, '_attrValidations', readOnly(`args.model.validations.attrs.${this.args.property}`));
+    } else {
+      defineProperty(this, '_attrValidations', readOnly(`model.validations.attrs.${this.property}`));
+    }
   }
 }
