@@ -1,3 +1,12 @@
+## v2.1.0 (2020-12-09)
+
+#### :rocket: Enhancement
+* [#79](https://github.com/kaliber5/ember-bootstrap-cp-validations/pull/79) support Ember Bootstrap v4.5 ([@jelhan](https://github.com/jelhan))
+
+#### Committers: 2
+- Jeldrik Hanschke ([@jelhan](https://github.com/jelhan))
+- [@dependabot-preview[bot]](https://github.com/apps/dependabot-preview)
+
 ## v2.0.1 (2020-09-26)
 
 #### :bug: Bug Fix
